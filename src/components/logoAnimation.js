@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import './logoAnimation.css';
 
 const randomDirection = (d) => {
     if (d === 0) {
@@ -60,12 +61,6 @@ export default function LogoAnimation() {
 
             // draw followers
             swarm.forEach((m, mInd) => {
-                // const index = (m.x + m.y * s.w) * 4;
-                // animData.data[index + 0] = 0;
-                // animData.data[index + 1] = 255;
-                // animData.data[index + 2] = 0;
-                // animData.data[index + 3] = 255;
-
                 m.x += m.dx;
                 m.y += m.dy;
 
@@ -124,14 +119,9 @@ export default function LogoAnimation() {
     }, [])
 
     return (
-        <div ref={animContainer} style={{
-            position: 'relative',
-            width: '100%',
-            paddingTop: '56.25%' /* 16:9 Aspect Ratio */
-
-        }}>
-            <canvas ref={canvasTextRef} style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%' }}></canvas>
-            <canvas ref={canvasAnimRef} style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%' }}></canvas>
+        <div ref={animContainer} className={'Animation__Container'}>
+            <canvas ref={canvasTextRef} className={'Animation__Canvas'}></canvas>
+            <canvas ref={canvasAnimRef} className={'Animation__Canvas'}></canvas>
         </div>
     )
 }
