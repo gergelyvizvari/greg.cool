@@ -10,7 +10,7 @@
 
 # production
 # /build
-/cryptoman
+/public/cryptoman
 
 # misc
 .DS_Store
